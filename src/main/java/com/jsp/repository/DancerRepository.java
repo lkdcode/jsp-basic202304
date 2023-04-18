@@ -10,7 +10,7 @@ import java.util.Map;
 // 댄서 정보 저장소
 public class DancerRepository {
 
-    private final Map<String, Dancer> dancerMap = new HashMap<>();
+    private static final Map<String, Dancer> dancerMap = new HashMap<>();
 
     // 댄서 저장 기능
 
@@ -39,6 +39,11 @@ public class DancerRepository {
     // 댄서 맵을 리스트로 변환해서 리턴하는 메서드
     public List<Dancer> findAll() {
         return new ArrayList<>(dancerMap.values());
+    }
+
+    // 댄서 맵에서 댄서 객체를 삭제하는 기능
+    public void delete(String name) {
+        dancerMap.remove(name);
     }
 
 }
